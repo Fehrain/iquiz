@@ -1,34 +1,38 @@
-$(document).ready(function(){
+$(document).ready(function()
+{
+	function questionSet(question,answer1,answer2,answer3,answer4,correctAnswer)
+	{
+		this.question = question;
+		this.answer1 = answer1;
+		this.answer2 = answer2;
+		this.answer3 = answer3;
+		this.answer4 = answer4;
+		this.correctAnswer = correctAnswer;
+		var answerArray = [this.answer1,this.answer2,this.answer3,this.answer4];
+		this.showQuestion = function(){
+			console.log(this.question);
+		}
+		this.showAnswers = function()
+		{
+			var arrayIndex = 0;
+			for (arrayIndex in answerArray)
+			{
+				console.log(answerArray[arrayIndex]);
+				}
+			}
+		this.showCorrectAnswer = function()
+		{
+			console.log("The correct answer is: " + answerArray[this.correctAnswer]);
+			
+		}
+	}
+	
     $('div').click(function(){
-     
-	 var questions = new Array();
-	 
-	 questions [0] = "1. Who makes the Focus?";
-	 questions [1] = "2. Where did the Mini Cooper originate?";
-	 questions [2] = "3. Who makes the Camry?";
-	 
-	 var answers = new Array();
-	 
-	 answers [0] = new Array();
-	 answers [0][0] = "Ford";
-	 answers [0][1] = "Chevrolet";
-	 answers [0][2] = "GMC";
-	 answers [0][3] = "Pontiac";
-	 
-	 answers [1] = new Array();
-	 answers [1][0] = "USA";
-	 answers [1][1] = "United Kingdom";
-	 answers [1][2] = "Japan";
-	 answers [1][3] = "Germany";
+	
 	 
 	 
 		
 		
     });
-	/*var allQuestions = [{question: "Who makes the Focus?", choices: ["David Cameron", "Gordon Brown", "Winston Churchill", "Tony Blair"], correctAnswer:0},
-		{question: "Who makes the Focus?", choices: ["David Cameron", "Gordon Brown", "Winston Churchill", "Tony Blair"], correctAnswer:0}
-		{question: "Who makes the Focus?", choices: ["David Cameron", "Gordon Brown", "Winston Churchill", "Tony Blair"], correctAnswer:0}
-		{question: "Who makes the Focus?", choices: ["David Cameron", "Gordon Brown", "Winston Churchill", "Tony Blair"], correctAnswer:0}
-		{question: "Who makes the Focus?", choices: ["David Cameron", "Gordon Brown", "Winston Churchill", "Tony Blair"], correctAnswer:0}
-		];*/
+	
 });
