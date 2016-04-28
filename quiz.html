@@ -1,9 +1,39 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+
+<html>
 <head>
 	<title>Interactive quiz</title>
-	<script type="text/javascript" src = "script.js"></script>
+	<script type="text/javascript">
+
+	function questionSet(question,answer1,answer2,answer3,answer4,correctAnswer)
+	{
+		this.question = question;
+		this.answer1 = answer1;
+		this.answer2 = answer2;
+		this.answer3 = answer3;
+		this.answer4 = answer4;
+		this.correctAnswer = correctAnswer;
+		var answerArray = [this.answer1,this.answer2,this.answer3,this.answer4];
+		this.showQuestion = function(){
+			console.log(this.question);
+		}
+		this.showAnswers = function()
+		{
+			var arrayIndex = 0;
+			for (arrayIndex in answerArray)
+			{
+				console.log(answerArray[arrayIndex]);
+				}
+			}
+		this.showCorrectAnswer = function()
+		{
+			console.log("The correct answer is: " + answerArray[this.correctAnswer]);
+			
+		}
+	}
+	
+	</script>
+	
+	
 	<script type="text/javascript" src="jquery-1.12.1.js">
 	 
 	 </script>
@@ -11,6 +41,13 @@
 	
 </head>
 <body>
+<script type="text/javascript">
+var question1 = new questionSet("Who makes the Focus?","Ford","Chevrolet","GMC","Pontiac",0);
+question1.showQuestion();
+question1.showAnswers();
+question1.showCorrectAnswer();
+var question2 = new questionSet("Where did Mini originate?","USA","United Kingdom","Japan","Germany",1);
+</script>
 	<h1> Interactive quiz!</h1>
 	<h2>5 question quiz</h2>
 	<p class="question1">1. Who makes the Focus?</p>
