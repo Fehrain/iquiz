@@ -1,4 +1,4 @@
-$(document).ready(function()
+$(document).ready(function() 
 {
 	function questionSet(question,answer1,answer2,answer3,answer4,correctAnswer)
 	{
@@ -26,13 +26,15 @@ $(document).ready(function()
 			
 		}
 	}
-	
-    $('div').click(function(){
-	
-	 
-	 
-		
-		
+	var question1 = new questionSet("Who makes the Focus?","Ford","Chevrolet","GMC","Pontiac",0);
+	question1.showQuestion();
+	question1.showAnswers();
+	question1.showCorrectAnswer();
+	var question2 = new questionSet("Where did Mini originate?","USA","United Kingdom","Japan","Germany",1);
+
+
+    $('div').click(function() {
+        $('div').fadeOut('slow');
     });
-	
 });
+
