@@ -27,7 +27,7 @@ $(document).ready(function()
 			
 		}
 	}
-	var question1 = new questionSet("Who makes the Focus?","Ford","Chevrolet","GMC","Pontiac",0);
+	var question1 = new questionSet("1. Who makes the Focus?","Ford","Chevrolet","GMC","Pontiac",0);
 	question1.showQuestion();
 	question1.showAnswers();
 	question1.showCorrectAnswer();
@@ -38,17 +38,24 @@ $(document).ready(function()
 	
 	var questionArray = [question1,question2];
 
-    $('button').click(function() {
+    $('.start').click(function() {
 		
 		var questionNumber = 0;
 		var radioAnswer
+		$('.question1').append(question1.question);
 		for (questionNumber in question1.answerArray)
 		{
-			$('.question').append("<div><input type='radio' name = 'q1' value =0>"+question1.answerArray[questionNumber]+"</input></div>");
+			$('.question').append("<div><input type='radio' name = 'q1' value ="+questionNumber+">"+question1.answerArray[questionNumber]+"</input></div>");
 		}
 		
 		
-        /*$('div').fadeOut('slow');*/
+        $('.start').hide();
+		$('.next').append("<br><button type='button' class='nextButton'>Next</button>")
     });
+	
+	$('.nextButton').click(function()
+	{
+		
+	});
 });
 
