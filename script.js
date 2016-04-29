@@ -9,6 +9,7 @@ $(document).ready(function()
 		this.answer4 = answer4;
 		this.correctAnswer = correctAnswer;
 		var answerArray = [this.answer1,this.answer2,this.answer3,this.answer4];
+		this.answerArray = answerArray;
 		this.showQuestion = function(){
 			console.log(this.question);
 		}
@@ -31,10 +32,23 @@ $(document).ready(function()
 	question1.showAnswers();
 	question1.showCorrectAnswer();
 	var question2 = new questionSet("Where did Mini originate?","USA","United Kingdom","Japan","Germany",1);
+	question2.showQuestion();
+	question2.showAnswers();
+	question2.showCorrectAnswer();
+	
+	var questionArray = [question1,question2];
 
-
-    $('div').click(function() {
-        $('div').fadeOut('slow');
+    $('button').click(function() {
+		
+		var questionNumber = 0;
+		var radioAnswer
+		for (questionNumber in question1.answerArray)
+		{
+			$('.question').append("<div><input type='radio' name = 'q1' value =0>"+question1.answerArray[questionNumber]+"</input></div>");
+		}
+		
+		
+        /*$('div').fadeOut('slow');*/
     });
 });
 
