@@ -1,98 +1,26 @@
 
 <html>
 <head>
-	<title>Interactive quiz</title>
-	<script type="text/javascript">
+	<title>Interactive quiz</title>	<script type="text/javascript" src="jquery-1.12.1.js"></script>
+	<script type="text/javascript" src="script.js"></script>
+	
+	
 
-	function questionSet(question,answer1,answer2,answer3,answer4,correctAnswer)
-	{
-		this.question = question;
-		this.answer1 = answer1;
-		this.answer2 = answer2;
-		this.answer3 = answer3;
-		this.answer4 = answer4;
-		this.correctAnswer = correctAnswer;
-		var answerArray = [this.answer1,this.answer2,this.answer3,this.answer4];
-		this.showQuestion = function(){
-			console.log(this.question);
-		}
-		this.showAnswers = function()
-		{
-			var arrayIndex = 0;
-			for (arrayIndex in answerArray)
-			{
-				console.log(answerArray[arrayIndex]);
-				}
-			}
-		this.showCorrectAnswer = function()
-		{
-			console.log("The correct answer is: " + answerArray[this.correctAnswer]);
-			
-		}
-	}
-	
-	</script>
-	
-	
-	<script type="text/javascript" src="jquery-1.12.1.js">
-	 
-	 </script>
 	
 	
 </head>
 <body>
-<script type="text/javascript">
-var question1 = new questionSet("Who makes the Focus?","Ford","Chevrolet","GMC","Pontiac",0);
-question1.showQuestion();
-question1.showAnswers();
-question1.showCorrectAnswer();
-var question2 = new questionSet("Where did Mini originate?","USA","United Kingdom","Japan","Germany",1);
-</script>
 	<h1> Interactive quiz!</h1>
 	<h2>5 question quiz</h2>
-	<p class="question1">1. Who makes the Focus?</p>
-	<ul class="answers">
-	<input type="radio" name="q1" value="a" id="q1a"><label for="q1a">Ford</label><br/>
-	<input type="radio" name="q1" value="b" id="q1b"><label for="q1b">Chevrolet</label><br/>
-	<input type="radio" name="q1" value="c" id="q1c"><label for="q1c">GMC</label><br/>
-	<input type="radio" name="q1" value="d" id="q1d"><label for="q1d">Pontiac</label><br/>
-	</ul>
-	<div><button type="button">Start</button>
+	<h2> Click the start button to begin!</h2>
+	<div><button type="button" class="start">Start</button></div>
+	<p class="question"></p>
+	<div class="answer"></div>
+	<div class="next"></div>
 	
 	
 	
-	 
-	<p class="question2">2. Where did Mini originate?</p>
-	<ul class="answers">
-	<input type="radio" name="q2" value="a" id="q2a"><label for="q2a">USA</label><br/>
-	<input type="radio" name="q2" value="b" id="q2b"><label for="q2b">United Kingdom</label><br/>
-	<input type="radio" name="q2" value="c" id="q2c"><label for="q2c">Japan</label><br/>
-	<input type="radio" name="q2" value="d" id="q2d"><label for="q2d">Germany</label><br/>
-	</ul>
 	
-	<p class="question3">1. Who makes the Focus?</p>
-	<ul class="answers">
-	<input type="radio" name="q3" value="a" id="q3a"><label for="q3a">Ford</label><br/>
-	<input type="radio" name="q3" value="b" id="q3b"><label for="q3b">Chevrolet</label><br/>
-	<input type="radio" name="q3" value="c" id="q3c"><label for="q3c">GMC</label><br/>
-	<input type="radio" name="q3" value="d" id="q3d"><label for="q3d">Pontiac</label><br/>
-	</ul>
-	
-	<p class="question4">1. Who makes the Focus?</p>
-	<ul class="answers">
-	<input type="radio" name="q4" value="a" id="q4a"><label for="q4a">Ford</label><br/>
-	<input type="radio" name="q4" value="b" id="q4b"><label for="q4b">Chevrolet</label><br/>
-	<input type="radio" name="q4" value="c" id="q4c"><label for="q4c">GMC</label><br/>
-	<input type="radio" name="q4" value="d" id="q4d"><label for="q4d">Pontiac</label><br/>
-	</ul>
-	
-	<p class="question5">1. Who makes the Focus?</p>
-	<ul class="answers">
-	<input type="radio" name="q5" value="a" id="q5a"><label for="q5a">Ford</label><br/>
-	<input type="radio" name="q5" value="b" id="q5b"><label for="q5b">Chevrolet</label><br/>
-	<input type="radio" name="q5" value="c" id="q5c"><label for="q5c">GMC</label><br/>
-	<input type="radio" name="q5" value="d" id="q5d"><label for="q5d">Pontiac</label><br/>
-	</ul>
 	
 </ul> 
 </body>
