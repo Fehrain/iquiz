@@ -46,7 +46,7 @@ $(document).ready(function()
 		$('.question').append(question1.question);
 		for (questionNumber in question1.answerArray)
 		{
-			$('.answer').append("<div><input type='radio' name = 'q1' value ="+questionNumber+">"+question1.answerArray[questionNumber]+"</input></div>");
+			$('.answer').append("<div class='herp'><input type='radio' name = 'q1' value ="+questionNumber+">"+question1.answerArray[questionNumber]+"</input></div>");
 		}
 		
 		
@@ -65,7 +65,7 @@ $(document).ready(function()
 		questionNumber = 0;
 		$('.question').replaceWith("<p class='question'>"+currentQuestion.question+"</p>");	
 		//$('.answer').replaceWith("<div class='answer'><div><input type='radio' name = 'q1' value ="+questionNumber+">"+currentQuestion.answerArray[questionNumber]+"</input></div></div>");
-		$('.answer').replaceWith(function(){
+		/*$('.answer').replaceText(function(){
 			var answerIndex = 0;
 			console.log("hi");
 			console.log(currentQuestion.answerArray);
@@ -73,8 +73,12 @@ $(document).ready(function()
 			{
 				console.log(answerIndex);
 				$('div').add("<div><input type='radio' name = 'q1' value ="+questionNumber+">"+currentQuestion.answerArray[answerIndex]+"</input></div>")
-			}
-		});
+			}*/
+		$('.herp').remove();
+		for (questionNumber in currentQuestion.answerArray)
+		{
+			$('.answer').append("<div class='herp'><input type='radio' name = 'q1' value ="+questionNumber+">"+currentQuestion.answerArray[questionNumber]+"</input></div>");
+		}
 	});
 });
 
