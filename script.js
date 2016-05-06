@@ -1,5 +1,12 @@
 $(document).ready(function() 
 {
+	$('.next').hide();
+	$('.finalScore').hide();
+	
+	
+	
+	
+	//----------------------------------       QUESTION CREATION Object FUNCTION     ------------------------------//
 	function questionSet(question,answer1,answer2,answer3,answer4,correctAnswer)
 	{
 		this.question = question;
@@ -27,20 +34,25 @@ $(document).ready(function()
 			
 		}
 	}
+	
 	var question1 = new questionSet("1. Who makes the Focus?","Ford","Chevrolet","GMC","Pontiac",0);
-	/*question1.showQuestion();
-	question1.showAnswers();
-	question1.showCorrectAnswer();*/
+	
 	var question2 = new questionSet("2. Where did Mini originate?","USA","United Kingdom","Japan","Germany",1);
-	/*question2.showQuestion();
-	question2.showAnswers();
-	question2.showCorrectAnswer();*/
+	
 	var question3 = new questionSet("3. Test","one","two","three","four",0);
+	
 	var listOfQuestions = [question1,question2,question3];
+	
 	var questionArray = [question1,question2,question3];
-	//console.log(questionArray);
-    $('.start').click(function() {
-		
+	
+	var userAnswers = new Array(3);
+	
+	
+	
+	//----------------------------------       START BUTTON FUNCTION     ------------------------------//
+    $('.start').click(function() 
+	{
+		$('h2').hide();
 		var questionNumber = 0;
 		var radioAnswer
 		$('.question').append(question1.question);
@@ -51,34 +63,88 @@ $(document).ready(function()
 		
 		
         $('.start').hide();
-		$('.next').append("<br><button type='button' class='nextButton'>Next</button>");
+		$('.next').unbind('.click');
+		$('.next').show();
     });
 	
 	var questionOrder = 1;
+	
+	
+	
+	//----------------------------------       NEXT BUTTON FUNCTION     ------------------------------//
+	
+	
 	$('.next').click(function()
 	{
-		
+		if ($('input[type=radio]:checked').size() > 0)
+		{
 		
 		var currentQuestion = questionArray[questionOrder];
+		
+		
+		
+		
+		
+		if(questionArray[questionOrder+1] === undefined)
+		{
+			$('.next').hide();
+			$('.finalScore').show();
+		}
+		
+		var currentQuestionUserAnswer = $('input[name=q1]:checked').val();
+		console.log("User's selected value: "+ currentQuestionUserAnswer);
+		userAnswers[questionOrder -1] = currentQuestionUserAnswer;
+		console.log("User's Answer Array: " + userAnswers);
+		
+		
 		console.log(currentQuestion);
+		
 		questionOrder++;
+		
 		questionNumber = 0;
+		
 		$('.question').replaceWith("<p class='question'>"+currentQuestion.question+"</p>");	
-		//$('.answer').replaceWith("<div class='answer'><div><input type='radio' name = 'q1' value ="+questionNumber+">"+currentQuestion.answerArray[questionNumber]+"</input></div></div>");
-		/*$('.answer').replaceText(function(){
-			var answerIndex = 0;
-			console.log("hi");
-			console.log(currentQuestion.answerArray);
-			for(answerIndex in currentQuestion.answerArray)
-			{
-				console.log(answerIndex);
-				$('div').add("<div><input type='radio' name = 'q1' value ="+questionNumber+">"+currentQuestion.answerArray[answerIndex]+"</input></div>")
-			}*/
+		
+		
+		
 		$('.herp').remove();
 		for (questionNumber in currentQuestion.answerArray)
 		{
 			$('.answer').append("<div class='herp'><input type='radio' name = 'q1' value ="+questionNumber+">"+currentQuestion.answerArray[questionNumber]+"</input></div>");
 		}
+		
+		}
 	});
+	
+	//----------------------------------       CALCULATE BUTTON FUNCTION     ------------------------------//
+	
+	$('.finalScore').click(function()
+	{
+		$('.question').hide();
+		$('.herp').hide();
+		var currentQuestionUserAnswer = $('input[name=q1]:checked').val();
+		console.log("User's selected value: "+ currentQuestionUserAnswer);
+		userAnswers[questionOrder -1] = currentQuestionUserAnswer;
+		console.log("User's Answer Array: " + userAnswers);
+		
+		var score = 0;
+		var questionCheck = 0;
+		if(questionCheck < 3)
+		{
+			if (userAnswers[quesetionCheck] == answerArray[questionCheck])
+			{
+				score++;
+			}
+		questionCheck++;
+		
+		}
+		console.log(score);
+		
+		 
+		 
+	});
+	
+	
+	
 });
 
