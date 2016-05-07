@@ -47,6 +47,7 @@ $(document).ready(function()
 	
 	var userAnswers = new Array(3);
 	
+	var questionAnswerArray = [question1.correctAnswer,question2.correctAnswer,question3.correctAnswer];
 	
 	
 	//----------------------------------       START BUTTON FUNCTION     ------------------------------//
@@ -129,17 +130,19 @@ $(document).ready(function()
 		
 		var score = 0;
 		var questionCheck = 0;
-		if(questionCheck < 3)
+		for(questionCheck = 0; questionCheck <3; questionCheck++)
 		{
-			if (userAnswers[quesetionCheck] == answerArray[questionCheck])
+			if (userAnswers[questionCheck] == questionAnswerArray[questionCheck])
 			{
 				score++;
 			}
-		questionCheck++;
-		
 		}
-		console.log(score);
 		
+		var result = (score/3)*100;
+		
+		console.log(score);
+		$('.finalScore').hide();
+		$('.finalResult').replaceWith("Your score is: " + result + "%");
 		 
 		 
 	});
