@@ -39,15 +39,18 @@ $(document).ready(function()
 	
 	var question2 = new questionSet("2. Where did Mini originate?","USA","United Kingdom","Japan","Germany",1);
 	
-	var question3 = new questionSet("3. Test","one","two","three","four",0);
+	var question3 = new questionSet("3. What company is known for a Mid Engined, Rear wheel drive layout?","Porsche","Subaru","Audi","Honda",0);
 	
-	var listOfQuestions = [question1,question2,question3];
+	var question4 = new questionSet("4. What company is kown for using the Rotary engine? ", "Renault","Subaru","Mazda","Mercedes",2);
 	
-	var questionArray = [question1,question2,question3];
+	var question5 = new questionSet("5. What brand is not sold in the US?","Hyundai","Fiat","Renault","Tesla",2);
+	var listOfQuestions = [question1,question2,question3,question4,question5];
 	
-	var userAnswers = new Array(3);
+	var questionArray = [question1,question2,question3,question4,question5];
 	
-	var questionAnswerArray = [question1.correctAnswer,question2.correctAnswer,question3.correctAnswer];
+	var userAnswers = new Array(4);
+	
+	var questionAnswerArray = [question1.correctAnswer,question2.correctAnswer,question3.correctAnswer,question4.correctAnswer,question5.correctAnswer];
 	
 	
 	//----------------------------------       START BUTTON FUNCTION     ------------------------------//
@@ -130,7 +133,7 @@ $(document).ready(function()
 		
 		var score = 0;
 		var questionCheck = 0;
-		for(questionCheck = 0; questionCheck <3; questionCheck++)
+		for(questionCheck = 0; questionCheck <5; questionCheck++)
 		{
 			if (userAnswers[questionCheck] == questionAnswerArray[questionCheck])
 			{
@@ -138,7 +141,7 @@ $(document).ready(function()
 			}
 		}
 		
-		var result = (score/3)*100;
+		var result = (score/5)*100;
 		
 		console.log(score);
 		$('.finalScore').hide();
